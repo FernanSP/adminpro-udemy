@@ -6,7 +6,15 @@
                 <h5 class="card-title">Progress bar</h5>
 
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
+                    <div class="progress-bar bg-primary progress-bar-striped active" style="height: 5px;" role="progressbar" [style.width]="getProgreso1()"></div>
+                    <!--[attr.ariaValuenow]="progreso" aria-valuemin="0" aria-valuemax="100"
+                    [style.width]="progreso + '%'"></div>-->
+                </div>
+
+                <div class="progress m-t-20">
+                    <div class="progress-bar bg-primary progress-bar-striped active" style="height: 5px;" role="progressbar" [style.width]="getProgreso2()"></div>
+                    <!--[attr.ariaValuenow]="progreso" aria-valuemin="0" aria-valuemax="100"
+                    [style.width]="progreso + '%'"></div>-->
                 </div>
 
             </div>
@@ -18,7 +26,9 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                Text 1
+
+                <app-incrementador (valor)="progreso1 = $event" [valor]="progreso1"></app-incrementador>
+
             </div>
         </div>
     </div>
@@ -29,19 +39,7 @@
         <div class="card">
             <div class="card-body">
 
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(-5)">
-                            <i class="mdi mdi-minus"></i>
-                        </button>
-                    </span>
-                    <input type="number" class="form-control" name="progreso" [(ngModel)]="progreso" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(+5)">
-                            <i class="mdi mdi-plus"></i>
-                        </button>
-                    </span>
-                </div>
+                <app-incrementador (valor)="progreso2 = $event" [valor]="progreso2" [btnClass]="'btn-info'"></app-incrementador>
 
             </div>
         </div>
